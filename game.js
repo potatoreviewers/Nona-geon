@@ -122,5 +122,5 @@ else if (y_less){
 else if (y_done){
     text("This one is right!", 50, 250);
 }
-text("Enter x and y (1<=x,y<=1000 value that satisfies this equation, then press ENTER:\n " + eq, 10, 100);
+text("Enter x and y (1<=x,y<=1000) value that satisfies this equation, then press ENTER:\n " + eq, 10, 100);
 }

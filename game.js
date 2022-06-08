@@ -3,6 +3,7 @@ let a,b,c = generate();
 let k =0;
 let x_pic,y_pic;
 let x_less = 0, y_less = 0, x_more = 0, y_more = 0, x_done =0, y_done =0, error =0;
+let inp_x, inp_y;
 function setup() {
 createCanvas(800, 800);
 

@@ -2,7 +2,7 @@ import {generate} from './generate.js';
 let a,b,c = generate();
 let k =0;
 let x_pic,y_pic;
-
+let x_less = 0, y_less = 0, x_more = 0, y_more = 0, x_done =0, y_done =0;
 function setup() {
 createCanvas(800, 800);
 
@@ -36,38 +36,40 @@ function FindSolutions()
 function keyPressed() {
     if (inp_x.value.length == 0 || inp_y.value.length == 0) text("One of the fields is empty", 50, 350);
     else if (keyCode === ENTER) {
-        inp_x.input(CompareEventX);
-        inp_y.input(CompareEventY);
+        CompareEventX();
+        CompareEventY();
     } 
   }
 
 function CompareEventX(){
-    if (this.value > x_pic)
+    x_more = 0, x_less = 0, x_done = 0;
+    if (inp_x.value > x_pic)
     {
-        text(">", 50, 200);
+        x_more = 1;
     }
-    else if (this.value < x_pic)
+    else if (inp_x.value < x_pic)
     {
-        text("<", 50, 200);
+        x_less = 1;
     }
     else 
     {
-        text("This one is right!", 50, 200);
+        x_done = 1;
     }
 }  
 
 function CompareEventY(){
-    if (this.value > y_pic)
+    y_more = 0, y_less = 0, y_done = 0;
+    if (inp_y.value > y_pic)
     {
-        text(">", 50, 250);
+        y_more = 1;
     }
-    else if (this.value < y_pic)
+    else if (inp_y.value < y_pic)
     {
-        text("<", 50, 250);
+        y_less = 1;
     }
     else 
     {
-        text("This one is right!", 50, 250);
+        y_done = 1;
     }
 }  
 
@@ -81,6 +83,23 @@ background("green");
 textSize(20);
 
 let eq = a.toString() + "*x+"+b.toString()+"*y="+c.toString();
-
+if (x_more){
+    text(">", 50, 200);
+}
+else if (x_less){
+    text("<", 50, 200);
+}
+else if (x_done){
+    text("This one is right!", 50, 200);
+}
+if (y_more){
+    text(">", 50, 250);
+}
+else if (y_less){
+    text("<", 50, 250);
+}
+else if (y_done){
+    text("This one is right!", 50, 250);
+}
 text("Enter x and y value that satisfies this equation, then press ENTER:\n " + eq, 50, 350);
 }

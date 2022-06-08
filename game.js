@@ -2,7 +2,7 @@ import {generate} from './generate.js';
 let a,b,c = generate();
 let k =0;
 let x_pic,y_pic;
-let x_less = 0, y_less = 0, x_more = 0, y_more = 0, x_done =0, y_done =0;
+let x_less = 0, y_less = 0, x_more = 0, y_more = 0, x_done =0, y_done =0, error =0;
 function setup() {
 createCanvas(800, 800);
 
@@ -34,7 +34,10 @@ function FindSolutions()
 }
 
 function keyPressed() {
-    if (inp_x.value.length == 0 || inp_y.value.length == 0) text("One of the fields is empty", 50, 350);
+    error = 0;
+    if (inp_x.value.length == 0 || inp_y.value.length == 0){
+        error = 1;
+    }
     else if (keyCode === ENTER) {
         CompareEventX();
         CompareEventY();
@@ -83,6 +86,11 @@ background("green");
 textSize(20);
 
 let eq = a.toString() + "*x+"+b.toString()+"*y="+c.toString();
+
+if (error){
+    text("One of the fields is empty", 50, 350);
+}
+
 if (x_more){
     text(">", 50, 200);
 }

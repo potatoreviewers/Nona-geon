@@ -1,17 +1,20 @@
-import {generate} from './generate.js';
-let a,b,c = generate();
+let a,b,c;
 let k =0;
 let x_pic,y_pic;
 let x_less = 0, y_less = 0, x_more = 0, y_more = 0, x_done =0, y_done =0, error =0;
 let inp_x, inp_y;
+
+
+
 function setup() {
 createCanvas(800, 800);
 
-FindSolutions()
-let inp_x = createInput('');
+generate();
+FindSolutions();
+inp_x = createInput('');
 inp_x.position(200, 200);
 inp_x.size(100);
-let inp_y = createInput('');
+inp_y = createInput('');
 inp_y.position(200, 250);
 inp_y.size(100);
 // Create buttons for creating
@@ -20,6 +23,15 @@ inp_y.size(100);
 // createBtn = createButton("Press me");
 // createBtn.position(200, 200);
 // createBtn.mouseClicked(Increment);
+}
+
+function generate() {
+     a = Math.floor(Math.random() * 1000);
+     b = Math.floor(Math.random() * 1000);
+     x_1 = Math.floor(Math.random() * 1000);
+     y_1 = Math.floor(Math.random() * 1000);
+
+     c = a*x_1 + b*y_1;
 }
 
 function FindSolutions()
@@ -31,12 +43,12 @@ function FindSolutions()
             res.push([x,y]);
         }
     }
-    [x_pic, y_pic] = res[Math.random() * (res.length - 1)];
+    
 }
 
 function keyPressed() {
     error = 0;
-    if (inp_x.value.length == 0 || inp_y.value.length == 0){
+    if (inp_x.value().length == 0 || inp_y.value().length == 0){
         error = 1;
     }
     else if (keyCode === ENTER) {
@@ -47,11 +59,11 @@ function keyPressed() {
 
 function CompareEventX(){
     x_more = 0, x_less = 0, x_done = 0;
-    if (inp_x.value > x_pic)
+    if (inp_x.value() > x_pic)
     {
         x_more = 1;
     }
-    else if (inp_x.value < x_pic)
+    else if (inp_x.value() < x_pic)
     {
         x_less = 1;
     }
@@ -63,11 +75,11 @@ function CompareEventX(){
 
 function CompareEventY(){
     y_more = 0, y_less = 0, y_done = 0;
-    if (inp_y.value > y_pic)
+    if (inp_y.value() > y_pic)
     {
         y_more = 1;
     }
-    else if (inp_y.value < y_pic)
+    else if (inp_y.value() < y_pic)
     {
         y_less = 1;
     }
@@ -110,5 +122,5 @@ else if (y_less){
 else if (y_done){
     text("This one is right!", 50, 250);
 }
-text("Enter x and y value that satisfies this equation, then press ENTER:\n " + eq, 50, 350);
+text("Enter x and y value that satisfies this equation, then press ENTER:\n " + eq, 10, 100);
 }

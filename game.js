@@ -82,5 +82,5 @@ textSize(20);
 
 let eq = a.toString() + "*x+"+b.toString()+"*y="+c.toString();
 
-text("Enter x and y value that satisfies this equation, then press ENTER: " + k, 50, 150);
+text("Enter x and y value that satisfies this equation, then press ENTER: " + eq, 50, 150);
 }

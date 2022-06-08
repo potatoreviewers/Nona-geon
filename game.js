@@ -43,7 +43,7 @@ function FindSolutions()
             res.push([x,y]);
         }
     }
-    
+    [x_pic, y_pic] = res[floor(Math.random() * res.length)];
 }
 
 function keyPressed() {

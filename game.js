@@ -2,6 +2,7 @@ let a,b,c;
 let k =0;
 let x_pic,y_pic;
 let x_less = 0, y_less = 0, x_more = 0, y_more = 0, x_done =0, y_done =0, error =0;
+let x_not_int = 0, y_not_int = 0;
 let inp_x, inp_y;
 
 
@@ -37,9 +38,10 @@ function generate() {
 function FindSolutions()
 {
     const res = [];
-    let x,y;
+    let x;
     for (let x = 1; x <= 1000; x++){
-        if (Number.isInteger(y = (c - a*x)/b) && (c - a*x)/b > 0){
+      const y = (c - a*x)/b;
+        if (Number.isInteger(y) && y > 0){
             res.push([x,y]);
         }
     }
@@ -59,6 +61,7 @@ function keyPressed() {
 
 function CompareEventX(){
     x_more = 0, x_less = 0, x_done = 0;
+    x_not_int = isNaN(parseInt(inp_x.value())) ? 1 : 0;
     if (inp_x.value() > x_pic)
     {
         x_more = 1;
@@ -75,6 +78,7 @@ function CompareEventX(){
 
 function CompareEventY(){
     y_more = 0, y_less = 0, y_done = 0;
+    y_not_int = isNaN(parseInt(inp_y.value())) ? 1 : 0;
     if (inp_y.value() > y_pic)
     {
         y_more = 1;
@@ -104,7 +108,10 @@ if (error){
     text("One of the fields is empty", 50, 350);
 }
 
-if (x_more){
+if (x_not_int){
+    text("X is not an integer", 50, 200);
+} 
+else if (x_more){
     text(">", 50, 200);
 }
 else if (x_less){
@@ -113,7 +120,11 @@ else if (x_less){
 else if (x_done){
     text("This one is right!", 50, 200);
 }
-if (y_more){
+
+if (y_not_int) {
+    text("Y is not an integer", 50, 250);
+}
+else if (y_more){
     text(">", 50, 250);
 }
 else if (y_less){

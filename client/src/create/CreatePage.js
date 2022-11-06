@@ -13,20 +13,17 @@ function CreatePage() {
 
   return (
     <>
-      <h1> Create Game </h1>
-      <form onSubmit={createRoom}>
-        <label> Room Name </label>
-        <input type="text" />
+      <div className="Page">
+        <div className="menu">
+          <h1> Create Game </h1>
+          <form onSubmit={createRoom}>
+            <label> Room Name </label>
+            <input type="text" />
 
-        <label> Require Password </label>
-        <input type="checkbox" />
-
-        <label> Password </label>
-        <input type="password" />
-
-        <input type="submit" value="Create Room" />
-
-      </form>
+            <input class="Button" type="submit" value="Create Room" />
+          </form>
+        </div>
+      </div>
     </>
   );
 }

@@ -13,17 +13,16 @@ function JoinPage() {
 
   return (
     <>
-      <h1> Join Game </h1>
-      <form onSubmit={joinGame}>
-        <label> Room id or url</label>
-        <input type="text" />
-
-        <label> Password </label>
-        <input type="password" />
-
-        <input type="submit" value="Join Room" />
-
-      </form>
+      <div className="Page">
+        <div className="menu">
+          <h1> Join Game </h1>
+          <form onSubmit={joinGame}>
+            <label> Room id or url</label>
+            <input type="text" />
+            <input class="Button" type="submit" value="Join Room" />
+          </form>
+        </div>
+      </div>
     </>
   );
 }

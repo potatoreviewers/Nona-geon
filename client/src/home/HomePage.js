@@ -16,13 +16,13 @@ function HomePage() {
 
   return (
     <>
-      <main className="home">
-        <h1> Nona Geon </h1>
-        <div className="home-menu">
-          <button onClick={createRoom}> Create Room </button>
-          <button onClick={joinRoom}> Join Room </button>
+      <div className="Page">
+        <div className="menu">
+          <h1> Nona Geon </h1>
+          <button class="Button" onClick={createRoom}> Create Room </button>
+          <button class="Button" onClick={joinRoom}> Join Room </button>
         </div>
-      </main>
+      </div>
     </>
   );
 }

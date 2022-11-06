@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/Nona-geon/static/css/main.9a69150a.css",
+    "main.js": "/Nona-geon/static/js/main.f5bb2dc8.js",
+    "index.html": "/Nona-geon/index.html",
+    "main.9a69150a.css.map": "/Nona-geon/static/css/main.9a69150a.css.map",
+    "main.f5bb2dc8.js.map": "/Nona-geon/static/js/main.f5bb2dc8.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.9a69150a.css",
+    "static/js/main.f5bb2dc8.js"
+  ]
+}

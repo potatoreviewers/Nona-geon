@@ -1,0 +1,9 @@
+{
+  "short_name": "Nona Geon",
+  "name": "Super duper game based on pure mathemagics",
+  "icons": [],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#ffffff"
+}
